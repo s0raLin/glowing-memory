@@ -35,10 +35,10 @@ export function Home({ articles, onSelectArticle }: HomeProps) {
             <Sparkles className="w-7 h-7 animate-pulse" />
             <span className="text-sm uppercase tracking-widest font-semibold opacity-90">欢迎来到</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             我的技术博客
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl opacity-95 mb-6 sm:mb-8 leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl opacity-95 mb-6 sm:mb-8 leading-relaxed">
             分享关于前端开发、React、TypeScript 和 Web 技术的见解与经验
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 text-sm sm:text-base">

@@ -1,13 +1,15 @@
 import React from 'react';
-import { Sun, Moon, FileText, House } from 'lucide-react';
+import { Sun, Moon, FileText, House, Menu } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 
 interface HeaderProps {
   onHomeClick?: () => void;
   showHomeButton?: boolean;
+  onMenuClick?: () => void;
+  showMenuButton?: boolean;
 }
 
-export function Header({ onHomeClick, showHomeButton = false }: HeaderProps) {
+export function Header({ onHomeClick, showHomeButton = false, onMenuClick, showMenuButton = false }: HeaderProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -18,7 +20,7 @@ export function Header({ onHomeClick, showHomeButton = false }: HeaderProps) {
             <div className="p-1.5 sm:p-2 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-base sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
               我的博客
             </h1>
           </div>
@@ -33,6 +35,16 @@ export function Header({ onHomeClick, showHomeButton = false }: HeaderProps) {
             </button>
           )}
         </div>
+
+        {showMenuButton && onMenuClick && (
+          <button
+            onClick={onMenuClick}
+            className="lg:hidden p-2.5 sm:p-3 rounded-xl bg-secondary hover:bg-secondary/80 transition-all duration-200 hover:shadow-md"
+            aria-label="打开菜单"
+          >
+            <Menu className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-foreground" />
+          </button>
+        )}
 
         <button
           onClick={toggleTheme}

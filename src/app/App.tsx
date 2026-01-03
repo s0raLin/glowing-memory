@@ -10,6 +10,7 @@ import { ReadingProgress } from './components/ReadingProgress';
 import { Loading } from './components/Loading';
 import { Footer } from './components/Footer';
 import { ScrollArea } from './components/ui/scroll-area';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './components/ui/sheet';
 import { loadArticles, getAllTags, filterArticlesByTag, searchArticles } from './utils/articleLoader';
 import type { Article } from './components/ArticleList';
 
@@ -22,6 +23,7 @@ function BlogContent() {
   const [selectedArticleId, setSelectedArticleId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // 加载文章
   useEffect(() => {
@@ -107,6 +109,11 @@ function BlogContent() {
     history.pushState({ viewMode: 'articles' }, '', '/articles');
   };
 
+  // 处理移动菜单
+  const handleMenuClick = () => {
+    setIsMobileMenuOpen(true);
+  };
+
   // 处理 Footer 导航
   const handleNavigate = (path: string) => {
     if (path === '/') {
@@ -133,14 +140,16 @@ function BlogContent() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors">
+    <div className="min-h-screen bg-background text-foreground">
       <ReadingProgress />
       <Header
         onHomeClick={handleBackToHome}
         showHomeButton={viewMode !== 'home'}
+        onMenuClick={handleMenuClick}
+        showMenuButton={viewMode === 'articles' || viewMode === 'article'}
       />
       
-      <main className="container mx-auto px-4 py-8 max-w-[1400px]">
+      <main className="container mx-auto px-4 py-6 sm:py-8 max-w-[1400px]">
         {viewMode === 'home' && (
           <Home 
             articles={articles} 
@@ -225,6 +234,34 @@ function BlogContent() {
 
       <ScrollToTop />
       <Footer onNavigate={handleNavigate} />
+
+      {/* 移动端文章列表抽屉 */}
+      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+        <SheetContent side="left" className="w-[300px] sm:w-[350px]">
+          <SheetHeader>
+            <SheetTitle>文章列表</SheetTitle>
+          </SheetHeader>
+          <div className="mt-6">
+            <SearchBar
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              selectedTag={selectedTag}
+              onTagChange={setSelectedTag}
+              availableTags={availableTags}
+            />
+            <div className="mt-6 max-h-[calc(100vh-200px)] overflow-y-auto">
+              <ArticleList
+                articles={filteredArticles}
+                selectedArticleId={selectedArticleId || undefined}
+                onSelectArticle={(id) => {
+                  handleSelectArticle(id);
+                  setIsMobileMenuOpen(false);
+                }}
+              />
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

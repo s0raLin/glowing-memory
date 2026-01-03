@@ -19,7 +19,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
   return (
     <footer className="mt-16 border-t border-border bg-card">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-6 sm:py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* 关于 */}
           <div>
