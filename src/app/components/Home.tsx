@@ -28,26 +28,26 @@ export function Home({ articles, onSelectArticle }: HomeProps) {
   return (
     <div className="space-y-10 pb-12">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 rounded-3xl p-8 md:p-16 text-white shadow-2xl">
+      <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 rounded-3xl p-6 sm:p-8 md:p-16 text-white shadow-2xl">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="relative z-10 max-w-4xl">
           <div className="flex items-center gap-2 mb-6">
             <Sparkles className="w-7 h-7 animate-pulse" />
             <span className="text-sm uppercase tracking-widest font-semibold opacity-90">欢迎来到</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             我的技术博客
           </h1>
-          <p className="text-xl md:text-2xl opacity-95 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl opacity-95 mb-6 sm:mb-8 leading-relaxed">
             分享关于前端开发、React、TypeScript 和 Web 技术的见解与经验
           </p>
-          <div className="flex flex-wrap gap-4 text-base">
-            <div className="flex items-center gap-3 bg-white/25 px-6 py-3 rounded-full backdrop-blur-md border border-white/30 shadow-lg">
-              <BookOpen className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 text-sm sm:text-base">
+            <div className="flex items-center gap-3 bg-white/25 px-4 sm:px-6 py-2 sm:py-3 rounded-full backdrop-blur-md border border-white/30 shadow-lg">
+              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
               <span className="font-medium">{articles.length} 篇文章</span>
             </div>
-            <div className="flex items-center gap-3 bg-white/25 px-6 py-3 rounded-full backdrop-blur-md border border-white/30 shadow-lg">
-              <Tag className="w-5 h-5" />
+            <div className="flex items-center gap-3 bg-white/25 px-4 sm:px-6 py-2 sm:py-3 rounded-full backdrop-blur-md border border-white/30 shadow-lg">
+              <Tag className="w-4 h-4 sm:w-5 sm:h-5" />
               <span className="font-medium">{Object.keys(tagCounts).length} 个标签</span>
             </div>
           </div>

@@ -67,7 +67,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* 联系方式 */}
           <div>
             <h3 className="mb-4 text-foreground">联系方式</h3>
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               <a
                 href="https://github.com"
                 target="_blank"

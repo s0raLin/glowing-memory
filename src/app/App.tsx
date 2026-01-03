@@ -9,6 +9,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { ReadingProgress } from './components/ReadingProgress';
 import { Loading } from './components/Loading';
 import { Footer } from './components/Footer';
+import { CustomCursor } from './components/CustomCursor';
 import { ScrollArea } from './components/ui/scroll-area';
 import { loadArticles, getAllTags, filterArticlesByTag, searchArticles } from './utils/articleLoader';
 import type { Article } from './components/ArticleList';
@@ -134,8 +135,9 @@ function BlogContent() {
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors">
+      <CustomCursor />
       <ReadingProgress />
-      <Header 
+      <Header
         onHomeClick={handleBackToHome}
         showHomeButton={viewMode !== 'home'}
       />
