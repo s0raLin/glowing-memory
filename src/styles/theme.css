@@ -197,3 +197,104 @@
     line-height: 1.5;
   }
 }
+
+/* 自定义光标样式 */
+.cursor-theme {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.cursor-dot-follow {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: transparent;
+}
+
+/* 主题变体 */
+.cursor-theme-default .cursor-dot,
+.cursor-theme-default .cursor-dot-follow {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.cursor-theme-dark .cursor-dot,
+.cursor-theme-dark .cursor-dot-follow {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.cursor-theme-purple .cursor-dot,
+.cursor-theme-purple .cursor-dot-follow {
+  background-color: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+.cursor-theme-pink .cursor-dot,
+.cursor-theme-pink .cursor-dot-follow {
+  background-color: #ec4899;
+  border-color: #ec4899;
+}
+
+/* 悬停状态 */
+.cursor-hover .cursor-dot {
+  transform: scale(1.5);
+}
+
+.cursor-hover .cursor-dot-follow {
+  transform: scale(0.8);
+  opacity: 0.5;
+}
+
+/* 点击状态 */
+.cursor-click .cursor-dot {
+  transform: scale(0.8);
+}
+
+.cursor-click .cursor-dot-follow {
+  transform: scale(1.2);
+}
+
+/* 动画效果 */
+.cursor-animated .cursor-dot {
+  animation: cursor-pulse 2s infinite;
+}
+
+.cursor-animated .cursor-dot-follow {
+  animation: cursor-follow 1.5s infinite;
+}
+
+@keyframes cursor-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes cursor-follow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* 拖尾效果 */
+.cursor-trail .cursor-dot-follow {
+  animation: cursor-trail 0.5s linear infinite;
+}
+
+@keyframes cursor-trail {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
