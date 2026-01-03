@@ -1,3 +1,44 @@
+pnpm run deploy
+
+> @figma/my-make-file@0.0.1 predeploy /home/cangli/Downloads/个人博客网站开发 (1)
+> pnpm build
+
+
+> @figma/my-make-file@0.0.1 build /home/cangli/Downloads/个人博客网站开发 (1)
+> vite build
+
+vite v6.3.5 building for production...
+✓ 2762 modules transformed.
+dist/index.html                                        0.47 kB │ gzip:   0.32 kB
+dist/assets/index-BGK_vDiw.css                       115.15 kB │ gzip:  17.83 kB
+dist/assets/index-C05oEmyB.js                          0.18 kB │ gzip:   0.19 kB
+dist/assets/README-B5PFo8ot.js                         2.42 kB │ gzip:   1.45 kB
+dist/assets/markdown-example-BQF9qRYi.js               2.73 kB │ gzip:   1.53 kB
+dist/assets/css-grid-DleKaf5q.js                       3.20 kB │ gzip:   1.58 kB
+dist/assets/getting-started-C1zjhL4Y.js                3.26 kB │ gzip:   1.84 kB
+dist/assets/react-hooks-B3eH1MnB.js                    4.59 kB │ gzip:   2.22 kB
+dist/assets/typescript-best-practices-0ob1aYl-.js      5.21 kB │ gzip:   2.44 kB
+dist/assets/web-performance-BZHpPUiE.js                6.51 kB │ gzip:   3.46 kB
+dist/assets/index-C-ouxbEj.js                      1,290.47 kB │ gzip: 402.08 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 2.89s
+
+> @figma/my-make-file@0.0.1 deploy /home/cangli/Downloads/个人博客网站开发 (1)
+> gh-pages -d dist
+
+ProcessError: 正克隆到 '/home/cangli/Downloads/个人博客网站开发 (1)/node_modules/.cache/gh-pages/https!github.com!s0raLin!个人博客网站开发.git'...
+remote: Repository not found.
+致命错误：仓库 'https://github.com/s0raLin/个人博客网站开发.git/' 未找到
+
+    at ChildProcess.<anonymous> (/home/cangli/Downloads/个人博客网站开发 (1)/node_modules/.pnpm/gh-pages@6.3.0/node_modules/gh-pages/lib/git.js:42:16)
+    at ChildProcess.emit (node:events:508:28)
+    at maybeClose (node:internal/child_process:1085:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:304:5)
+ ELIFECYCLE  Command failed with exit code 1.
 # Dependencies
 node_modules/
 .pnpm-debug.log*
